@@ -1,0 +1,10 @@
+django>=5.0
+djangorestframework
+python-dotenv
+gunicorn
+psycopg2-binary
+requests
+django-cors-headers
+openai
+langchain
+colorlog

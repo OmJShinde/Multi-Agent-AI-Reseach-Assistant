@@ -1,0 +1,7 @@
+# Backend (Terminal 1)
+.\.venv\Scripts\Activate
+python backend\manage.py runserver
+
+# Frontend (Terminal 2)
+cd frontend
+npm run dev

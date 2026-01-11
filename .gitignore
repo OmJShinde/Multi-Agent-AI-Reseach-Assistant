@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Environment Variables
+.env
+.env.local
+
+# React / Node
+node_modules/
+dist/
+build/
+.DS_Store
+coverage/
+.vscode/
