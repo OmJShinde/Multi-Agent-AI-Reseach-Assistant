@@ -3,112 +3,107 @@
 A **full-stack AI research assistant** that utilizes a **multi-agent orchestration pattern** to fetch, summarize, and verify information in response to research queries.
 It is built with a **Django backend**, **React frontend**, and **multiple AI agents** working collaboratively to simulate professional research workflows.
 
-## Overview
+![UI Screenshot](https://via.placeholder.com/800x400?text=Multi-Agent+Research+Assistant+UI)
 
-This project demonstrates a modern AI application architecture that:
+## 🚀 Key Features
 
-- Breaks down complex research tasks into specialized autonomous agents.
-- Utilizes distinct **Search**, **Summarization**, and **Verification** agents.
-- Structures results with **confidence scores and citations** for transparency.
-- Provides a polished, responsive interface for interacting with AI responses.
-- Is designed with **scalability, security, and real-world relevance** in mind.
+- **Multi-Agent Orchestration**: 
+  - **Search Agent**: Discovers diverse and reliable sources.
+  - **Summarization Agent**: Synthesizes deep, comprehensive insights.
+  - **Verification Agent**: Cross-checks claims and flags potential inaccuracies.
+- **Gemini-like UI**: 
+  - **Main View**: Deep answer and source context.
+  - **Side Panel**: Real-time confidence scores and concise verification flags.
+- **Modern Tech Stack**: Django REST Framework, React + Vite, TailwindCSS.
+- **Robust Architecture**: Modular agent system designed for scalability.
 
-## System Architecture
-
-The system is composed of the following specialized components:
-
-### Search Agent
-Fetches relevant articles, documents, and references from verified online sources.
-
-### Summarization Agent
-Analyzes retrieved content and synthesizes a concise, coherent research summary.
-
-### Verification Agent
-Cross-checks the generated summary against the original sources to detect hallucinations and assigns a confidence score.
-
-### Orchestrator
-Coordinates these agents in a linear pipeline:
-1.  **Search**: Gather data on the topic.
-2.  **Summarize**: Distill key information.
-3.  **Verify**: Validate accuracy and consistency.
-
-Returns the final structured research results to the frontend.
-
-This **orchestration pattern** is essential for building robust agent-based workflows in production AI systems.
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |-------|------------|
-| **Backend** | Django, Django REST Framework |
+| **Backend** | Django, Django REST Framework, Python |
 | **Frontend** | React, Vite, TailwindCSS, shadcn/ui |
-| **Agents** | Python modules (Search / Summarize / Verify) |
-| **AI Models** | LLMs (via Groq/OpenAI APIs) |
-| **Database** | SQLite (Development) / PostgreSQL (Production) |
+| **Agents** | Custom Python Modules (Search / Summarize / Verify) |
+| **AI Models** | Groq (Llama 3 70B) / OpenAI Compatible APIs |
+| **Database** | SQLite (Dev) / PostgreSQL (Prod) |
 
-## Key Features
+## 🏁 Getting Started
 
-- **Agent Orchestration**: Clean separation of concerns between discovery, synthesis, and verification.
-- **Modular Backend**: Extensible Django architecture allowing for easy addition of new agents.
-- **Modern Frontend UI**: Professional interface built with React and TailwindCSS.
-- **Trust & Safety**: Integrated confidence scoring and source tracking.
-- **Configuration**: Secure environment variable-based configuration for API keys.
-
-## Getting Started
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- Groq API Key (or OpenAI compatible key)
 
 ### Backend Setup
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/OmJShinde/Multi-Agent-AI-Reseach-Assistant.git
    cd Multi-Agent-AI-Reseach-Assistant/backend
    ```
 
-2. Create and activate a virtual environment:
+2. **Create and activate a virtual environment:**
    ```bash
    # Windows
-   python -m venv venv
-   .\venv\Scripts\Activate
+   python -m venv .venv
+   .\.venv\Scripts\Activate
 
    # macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
+   python3 -m venv .venv
+   source .venv/bin/activate
    ```
 
-3. Install dependencies:
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Configure Environment:
-   Create a `.env` file in the `backend` directory and add your API keys:
+4. **Configure Environment:**
+   Create a `.env` file in the `backend` directory:
    ```env
-   GROQ_API_KEY=your_api_key_here
+   GROQ_API_KEY=your_groq_api_key_here
    DEBUG=True
    DJANGO_SECRET_KEY=your_secret_key
    ```
 
-5. Run Migrations and Server:
+5. **Run Migrations and Server:**
    ```bash
    python manage.py migrate
-   python manage.py runserver
+   
+   # Run on 0.0.0.0 to avoid localhost binding issues
+   python manage.py runserver 0.0.0.0:8000
    ```
 
 ### Frontend Setup
 
-1. Navigate to the frontend directory:
+1. **Navigate to the frontend directory:**
    ```bash
    cd ../frontend
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. Run the development server:
+3. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-Access the application at `http://localhost:5173`.
+4. **Access the application:**
+   Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## 🧩 Architecture
+
+The system follows a linear orchestration pipeline:
+
+1.  **User Query** -> **Orchestrator**
+2.  **Orchestrator** -> **Search Agent** (Fetches Documents)
+3.  **Orchestrator** -> **Summarization Agent** (Generates Deep Answer)
+4.  **Orchestrator** -> **Verification Agent** (Validates Answer)
+5.  **Result** -> **Frontend** (Displayed in Gemini-like Layout)
+
+## 📄 License
+
+This project is licensed under the MIT License.
