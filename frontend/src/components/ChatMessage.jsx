@@ -50,23 +50,34 @@ export default function ChatMessage({ message }) {
                                     <AgentTimeline steps={results.agent_steps} />
                                 </div>
 
-                                <div className="grid gap-6 md:grid-cols-[1fr_300px]">
-                                    <div className="space-y-6">
+                                <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
+
+                                    {/* MAIN COLUMN: Answer + Sources */}
+                                    <div className="space-y-8 min-w-0">
                                         {/* 2. Answer */}
-                                        <div className="prose dark:prose-invert max-w-none text-base leading-relaxed">
+                                        <div className="prose dark:prose-invert max-w-none text-base leading-relaxed break-words">
                                             <ReactMarkdown>{results.answer}</ReactMarkdown>
                                         </div>
 
-                                        {/* 3. Flags */}
-                                        <FlagPanel flags={results.flags} />
+                                        <div className="border-t pt-6">
+                                            {/* 3. Sources (Moved to Main Column) */}
+                                            <h4 className="text-sm font-semibold mb-4 text-muted-foreground">Sources & Context</h4>
+                                            <SourceCard sources={results.sources} />
+                                        </div>
                                     </div>
 
-                                    <div className="space-y-6">
+                                    {/* SIDE COLUMN: Verification & Confidence */}
+                                    <div className="space-y-6 lg:sticky lg:top-4 h-fit">
                                         {/* 4. Confidence */}
-                                        <ConfidenceMeter score={results.confidence} />
+                                        <div className="p-4 rounded-xl border bg-card/50">
+                                            <ConfidenceMeter score={results.confidence} />
+                                        </div>
 
-                                        {/* 5. Sources */}
-                                        <SourceCard sources={results.sources} />
+                                        {/* 5. Flags (Verification) */}
+                                        <div>
+                                            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Verification</h4>
+                                            <FlagPanel flags={results.flags} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

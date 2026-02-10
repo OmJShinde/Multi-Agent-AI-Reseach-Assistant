@@ -47,7 +47,7 @@ export default function Dashboard() {
                 const newMsgs = [...prev];
                 const lastMsg = newMsgs[newMsgs.length - 1];
                 lastMsg.results = {
-                    answer: `**Error:** Failed to complete research. \n\n${err?.error || 'Unknown error'}`,
+                    answer: `**Error:** Failed to complete research. \n\n${(typeof err === 'string' ? err : err?.error) || JSON.stringify(err) || 'Unknown error'}`,
                     agent_steps: [],
                     confidence: 0,
                     sources: [],
